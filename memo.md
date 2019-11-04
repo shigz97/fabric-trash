@@ -51,29 +51,35 @@ peer chaincode instantiate -o orderer.zjucst.com:7050 -C mychannel -n trash -l g
 ##选择CLI操作或者SDK操作
 ## 链码交互
 peer chaincode invoke -C mychannel -n trash -c '{"Args":["RecyclerRegister", "rcy1", "rcy1"]}'
-peer chaincode invoke -C mychannel -n trash -c '{"Args":["RecyclerQuery", "rcy1"]}'
 peer chaincode invoke -C mychannel -n trash -c '{"Args":["ProcessorRegister", "pro1", "pro1"]}'
-peer chaincode invoke -C mychannel -n trash -c '{"Args":["ProcessorQuery", "pro1"]}'
 peer chaincode invoke -C mychannel -n trash -c '{"Args":["TrashEnroll", "t1","t1","c1","10","rcy1"]}'
-peer chaincode invoke -C mychannel -n trash -c '{"Args":["TrashEnroll", "t2","t2","c2","10","rcy1"]}'
-peer chaincode invoke -C mychannel -n trash -c '{"Args":["queryRecyleHistory", "rcy1"]}'
-peer chaincode invoke -C mychannel -n trash -c '{"Args":["queryRecyleHistory", "rcy1","t1"]}'
-peer chaincode invoke -C mychannel -n trash -c '{"Args":["queryRecyleHistory", "rcy1","t2"]}'
-peer chaincode invoke -C mychannel -n trash -c '{"Args":["TrashTrans", "rcy1","pro1","t1","10"]}'
+peer chaincode invoke -C mychannel -n trash -c '{"Args":["TrashEnroll", "t1","t1","c1","10","rcy1"]}'
+peer chaincode invoke -C mychannel -n trash -c '{"Args":["TrashEnroll", "t2","t2","c2","30","rcy1"]}'
+peer chaincode invoke -C mychannel -n trash -c '{"Args":["TrashTrans", "rcy1","pro1","t1","20"]}'
 peer chaincode invoke -C mychannel -n trash -c '{"Args":["TrashTrans", "rcy1","pro1","t2","10"]}'
 peer chaincode invoke -C mychannel -n trash -c '{"Args":["TrashProcess", "pro1","t1","burn","10"]}'
-peer chaincode invoke -C mychannel -n trash -c '{"Args":["queryTransHistory", "t1"]}'
-peer chaincode invoke -C mychannel -n trash -c '{"Args":["queryTransHistory", "t1","rcy1"]}'
-peer chaincode invoke -C mychannel -n trash -c '{"Args":["queryTransHistory", "t1","rcy1","pro1"]}'
-peer chaincode invoke -C mychannel -n trash -c '{"Args":["queryProcessHistory", "pro1"]}'
-peer chaincode invoke -C mychannel -n trash -c '{"Args":["queryProcessHistory", "pro1","t1"]}'
+peer chaincode invoke -C mychannel -n trash -c '{"Args":["TrashProcess", "pro1","t1","bury","10"]}'
+peer chaincode invoke -C mychannel -n trash -c '{"Args":["TrashProcess", "pro1","t2","burn","10"]}'
+
 
 
 
 ## 链码查询
-peer chaincode query -C assetschannel -n assets -c '{"Args":["queryUser", "user1"]}'
-peer chaincode query -C assetschannel -n assets -c '{"Args":["queryIngredient", "asset1"]}'
-peer chaincode query -C assetschannel -n assets -c '{"Args":["queryUser", "user2"]}'
-peer chaincode query -C assetschannel -n assets -c '{"Args":["queryIngredientHistory", "assets1"]}'
-peer chaincode query -C assetschannel -n assets -c '{"Args":["queryIngredientHistory", "asset1", "all"]}'
+peer chaincode query -C mychannel -n trash -c '{"Args":["RecyclerQuery", "rcy1"]}'
+peer chaincode query -C mychannel -n trash -c '{"Args":["ProcessorQuery", "pro1"]}'
+peer chaincode query -C mychannel -n trash -c '{"Args":["queryRecyleHistory", "rcy1"]}'
+peer chaincode query -C mychannel -n trash -c '{"Args":["queryRecyleHistory", "rcy1","t1"]}'
+peer chaincode query -C mychannel -n trash -c '{"Args":["queryRecyleHistory", "rcy1","t2"]}'
+peer chaincode query -C mychannel -n trash -c '{"Args":["queryTransHistory", "t1"]}'
+peer chaincode query -C mychannel -n trash -c '{"Args":["queryTransHistory", "t1","rcy1"]}'
+peer chaincode query -C mychannel -n trash -c '{"Args":["queryTransHistory", "t1","rcy1","pro1"]}'
+peer chaincode query -C mychannel -n trash -c '{"Args":["queryProcessHistory", "pro1"]}'
+peer chaincode query -C mychannel -n trash -c '{"Args":["queryProcessHistory", "pro1","t1"]}'
+
+
+
+
+
+
+
 
