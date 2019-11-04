@@ -5,3 +5,4 @@ crypto-config/*
 
 node_modules
 node_modules/*
+chaincode/hyperledger/fabric/peer/mychannel.block
