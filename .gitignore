@@ -3,4 +3,5 @@
 config/*
 crypto-config/*
 
+node_modules
 node_modules/*
