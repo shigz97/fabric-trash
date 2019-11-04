@@ -39,7 +39,6 @@ peer channel join -b mychannel.block
 peer channel update -o orderer.zjucst.com:7050 -c mychannel -f /etc/hyperledger/config/Org1MSPanchors.tx
 
 ## 链码安装
-peer chaincode install -n assets -v 1.0 -l golang -p github.com/trash
 peer chaincode install -n trash -v 1.0 -l golang -p github.com/trash
 
 
